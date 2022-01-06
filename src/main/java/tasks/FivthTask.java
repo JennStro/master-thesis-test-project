@@ -1,7 +1,12 @@
+package tasks;
+
+import annotations.NoEqualsMethod;
+import results.WriteToFile;
+
 import java.util.ArrayList;
 
 /**
- * You should make changes to FivthTask such that the code below prints SUCCESS!
+ * You should make changes to tasks.FivthTask such that the code below prints SUCCESS!
  */
 @NoEqualsMethod
 public class FivthTask {

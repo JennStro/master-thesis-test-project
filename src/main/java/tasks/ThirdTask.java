@@ -1,3 +1,9 @@
+package tasks;
+
+import annotations.NoEqualsMethod;
+import annotations.NoInitialization;
+import results.WriteToFile;
+
 import java.util.ArrayList;
 @NoEqualsMethod
 public class ThirdTask {

@@ -1,3 +1,8 @@
+package tasks;
+
+import annotations.NoEqualsMethod;
+import results.WriteToFile;
+
 /**
  *  You have a class Bag, that contains some items. A bag is equal to another bag
  *  when it has the same content. You should change the class Bag such that the code

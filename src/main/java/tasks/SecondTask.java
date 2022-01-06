@@ -1,3 +1,8 @@
+package tasks;
+
+import annotations.NoEqualsMethod;
+import results.WriteToFile;
+
 /**
  * You have a new bag. Two bags are equals if it has the same size. You should
  * make chances to the method secondTask() such that the code below prints "SUCCESS".

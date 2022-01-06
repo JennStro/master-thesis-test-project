@@ -1,7 +1,12 @@
+package tasks;
+
+import annotations.NoEqualsMethod;
+import results.WriteToFile;
+
 import java.util.ArrayList;
 
 /**
- * You have to make changes to the class FourthTask such that the code below prints "SUCCESS."
+ * You have to make changes to the class tasks.FourthTask such that the code below prints "SUCCESS."
  */
 @NoEqualsMethod
 public class FourthTask {

@@ -17,7 +17,7 @@ public class TaskFive {
     private ArrayList<String> list = new ArrayList<>();
 
     public void doIt(boolean shouldAddToList) {
-        ArrayList<String> list = new ArrayList<>();
+        list = new ArrayList<>();
         if (shouldAddToList)
             list.add("1");
             list.add("2");

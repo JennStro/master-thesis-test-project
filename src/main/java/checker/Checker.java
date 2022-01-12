@@ -3,6 +3,15 @@ package checker;
 import filewriter.WriteToFile;
 import tasks.*;
 
+import java.awt.*;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLConnection;
+
 public class Checker {
 
     enum STATUS {
@@ -20,6 +29,39 @@ public class Checker {
         } else {
             WriteToFile.write(STATUS.FAIL.toString(), 1);
         }
+
+
+        try {
+            URL url = new URL("https://master-thesis-web-backend.herokuapp.com/analyse");
+            URLConnection con = null;
+            con = url.openConnection();
+            HttpURLConnection http = (HttpURLConnection)con;
+            http.setRequestMethod("POST");
+            http.setDoOutput(true);
+            http.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+            http.connect();
+
+            FileReader file = new FileReader("src/main/java/tasks/TaskOne.java");
+            StringBuilder content = new StringBuilder();
+            int ch = file.read();
+            while (ch != -1) {
+                content.append((char) ch);
+                ch = file.read();
+            }
+
+            try(OutputStream os = http.getOutputStream()) {
+                os.write(content.toString().getBytes());
+            }
+            String response = new String(http.getInputStream().readAllBytes());
+            System.out.println(response);
+            if (response.contains("errors")) {
+                System.out.println("FAIL");
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public static void checkTaskTwo() {

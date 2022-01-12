@@ -31,9 +31,9 @@ public class TaskOne implements Task {
         Bag bag2 = new Bag(5);
 
         if (bag1.equals(bag2)) {
-            System.out.println("SUCCESS");
+            System.out.println("bag1 1 is equal to bag2!");
         } else {
-            System.out.println("FAIL");
+            System.out.println("bag1 1 is not equal to bag2! (They should be.)");
         }
     }
 

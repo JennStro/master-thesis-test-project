@@ -1,7 +1,7 @@
 package tasks;
 
 import annotations.NoEqualsMethod;
-import results.WriteToFile;
+import checker.Checker;
 
 import java.util.ArrayList;
 

@@ -1,6 +1,8 @@
 package tasks;
 
 import annotations.NoEqualsMethod;
+import checker.Checker;
+
 @NoEqualsMethod
 public class TaskThree {
 

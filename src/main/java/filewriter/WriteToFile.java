@@ -1,4 +1,4 @@
-package results;
+package filewriter;
 
 import java.io.FileWriter;
 import java.io.IOException;

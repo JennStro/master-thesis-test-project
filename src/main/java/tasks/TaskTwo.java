@@ -1,6 +1,7 @@
 package tasks;
 
 import annotations.NoEqualsMethod;
+import checker.Checker;
 
 /**
  * You have a new bag. Two bags are equals if it has the same size. You should

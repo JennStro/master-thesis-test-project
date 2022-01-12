@@ -1,6 +1,7 @@
-package tasks;
+package checker;
 
-import results.WriteToFile;
+import filewriter.WriteToFile;
+import tasks.*;
 
 public class Checker {
 

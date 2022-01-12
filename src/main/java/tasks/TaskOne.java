@@ -1,6 +1,7 @@
 package tasks;
 
 import annotations.NoEqualsMethod;
+import checker.Checker;
 
 /**
  *  You have a class Bag, that contains some items. A bag is equal to another bag

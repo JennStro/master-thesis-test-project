@@ -1,14 +1,22 @@
 package tasks;
 
 import annotations.NoEqualsMethod;
-import results.WriteToFile;
 
 /**
  * You have a new bag. Two bags are equals if it has the same size. You should
- * make chances to the method secondTask() such that the code below prints "SUCCESS".
+ * make chances to the method doIt() such that the code below prints "SUCCESS".
  */
 @NoEqualsMethod
-public class SecondTask {
+public class TaskTwo {
+
+    public static void main(String[] args) {
+        TaskTwo taskTwo = new TaskTwo();
+        taskTwo.doIt();
+
+        Checker.checkTaskTwo();
+    }
+
+    private boolean theBagsAreEqual;
 
     public class Bag {
 
@@ -25,27 +33,32 @@ public class SecondTask {
             return false;
         }
 
+        public int hashCode() {
+            return this.size;
+        }
+
     }
 
     /**
      * The method you should change!
      */
-    public void secondTask() {
+    public void doIt() {
         Bag bag1 = new Bag(5);
         Bag bag2 = new Bag(5);
-        boolean theBagsAreEqual = bag1 == bag2;
+
+        theBagsAreEqual = bag1 == bag2;
+
         if (theBagsAreEqual) {
             System.out.println("SUCCESS");
-            WriteToFile.write("SUCCESS", 2);
         } else {
             System.out.println("FAIL");
-            WriteToFile.write("FAIL", 2);
         }
     }
 
-    public static void main(String[] args) {
-        SecondTask secondTask = new SecondTask();
-        secondTask.secondTask();
+
+
+    public boolean theBagsAreEqual() {
+        return this.theBagsAreEqual;
     }
 
 }

@@ -1,7 +1,6 @@
 package tasks;
 
 import annotations.NoEqualsMethod;
-import results.WriteToFile;
 
 /**
  *  You have a class Bag, that contains some items. A bag is equal to another bag
@@ -9,37 +8,32 @@ import results.WriteToFile;
  *  below prints "SUCCESS".
  */
 @NoEqualsMethod
-public class FirstTask {
+public class TaskOne implements Task {
+
+    public static void main(String[] args) {
+        TaskOne taskOne = new TaskOne();
+        taskOne.doIt();
+        Checker.checkTaskOne();
+    }
 
     public class Bag {
 
         private int content = 0;
 
-        public void setContent(int content) {
+        public Bag(int content) {
             this.content = content;
         }
-
     }
 
-    public void FirstTask() {
-        Bag bag1 = new Bag();
-        bag1.setContent(5);
-        Bag bag2 = new Bag();
-        bag2.setContent(5);
+    public void doIt() {
+        Bag bag1 = new Bag(5);
+        Bag bag2 = new Bag(5);
 
         if (bag1.equals(bag2)) {
             System.out.println("SUCCESS");
-            WriteToFile.write("SUCCESS", 1);
         } else {
             System.out.println("FAIL");
-            WriteToFile.write("FAIL",1);
         }
     }
-
-    public static void main(String[] args) {
-        FirstTask firstTask = new FirstTask();
-        firstTask.FirstTask();
-    }
-
 
 }

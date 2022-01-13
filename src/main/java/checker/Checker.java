@@ -1,11 +1,5 @@
 package checker;
 
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLConnection;
 import java.util.Optional;
 
 public class Checker {
@@ -23,17 +17,39 @@ public class Checker {
     }
 
     private static void checkTask(String file) {
-        Optional<String> response = getResponse(file);
+
+        Call call = new Call();
+        call.fileName = file;
+        call.start();
+
+        System.out.println("Waiting for analysis.");
+        int progressLength = 30;
+        int prints = 0;
+        while(!call.hasResponse()) {
+            System.out.print(".");
+            prints+=1;
+            if (prints % progressLength == 0) {
+                System.out.print("\n");
+            }
+            try {
+                Thread.sleep(15);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+        Optional<String> response = call.getResponse();
+        call.interrupt();
 
         if (response.isPresent()) {
             if (response.get().contains("\"status\":\"errors\"")) {
 
-                System.out.println("FAIL");
+                System.out.println("\nFAIL");
             } else {
-                System.out.println("SUCCESS");
+                System.out.println("\nSUCCESS");
             }
         } else {
-            System.out.println("FAIL");
+            System.out.println("\nFAIL");
         }
     }
 
@@ -59,33 +75,5 @@ public class Checker {
 
     public static void checkDemo() { checkTask(DEMO_FILEPATH); }
 
-    private static Optional<String> getResponse(String path) {
-        try {
-            URL url = new URL("https://master-thesis-web-backend-prod.herokuapp.com/analyse");
-            URLConnection con = url.openConnection();
-            HttpURLConnection http = (HttpURLConnection) con;
-            http.setRequestMethod("POST");
-            http.setDoOutput(true);
-            http.setRequestProperty("Content-Type", "text/plain; charset=UTF-8");
-            http.connect();
 
-            FileReader file = new FileReader(path);
-            StringBuilder content = new StringBuilder();
-            int ch = file.read();
-            while (ch != -1) {
-                content.append((char) ch);
-                ch = file.read();
-            }
-
-            try(OutputStream os = http.getOutputStream()) {
-                os.write(content.toString().getBytes());
-            }
-            String response = new String(http.getInputStream().readAllBytes());
-            return Optional.of(response);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return Optional.empty();
-    }
 }

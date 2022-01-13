@@ -11,7 +11,7 @@ import java.util.Objects;
  *  below prints "SUCCESS".
  */
 @NoEqualsMethod
-public class TaskOne implements Task {
+public class TaskOne {
 
     public static void main(String[] args) {
         TaskOne taskOne = new TaskOne();

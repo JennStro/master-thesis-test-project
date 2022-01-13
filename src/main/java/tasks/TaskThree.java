@@ -12,27 +12,19 @@ public class TaskThree {
         Checker.checkTaskThree();
     }
 
-    private String s;
-
     /**
      * This is the method you should change!
      *
      */
     public void doIt() {
-        s = "Java";
+        String s = "Java";
         s.toUpperCase();
 
         if ("JAVA".equals(s)) {
-            System.out.println("SUCCESS");
+            System.out.println("Output: " + s + " is correct!");
         } else {
-            System.out.println("FAIL");
+            System.out.println("Output: " + s + " should be JAVA!");
         }
-    }
-
-
-
-    public String getString() {
-        return s;
     }
 
 }

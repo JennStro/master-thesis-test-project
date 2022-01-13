@@ -8,8 +8,6 @@ import java.util.ArrayList;
 @NoEqualsMethod
 public class TaskFour {
 
-    private Bag bag;
-
     public static void main(String[] args) {
         TaskFour taskFour = new TaskFour();
         taskFour.doIt();
@@ -37,18 +35,13 @@ public class TaskFour {
     }
 
     public void doIt() {
-        bag = new Bag();
+        Bag bag = new Bag();
 
         if (bag.getContent() == null) {
-            System.out.println("FAIL");
+            System.out.println("Uh oh, the content of the bag should not be null!");
         } else {
-            System.out.println("SUCCESS");
+            System.out.println("Woho! The content of the bag is not null anymore.");
         }
-    }
-
-
-    public Bag getBag() {
-        return this.bag;
     }
 
 }

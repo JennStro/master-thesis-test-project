@@ -17,8 +17,6 @@ public class TaskTwo {
         Checker.checkTaskTwo();
     }
 
-    private boolean theBagsAreEqual;
-
     public class Bag {
 
         private int size;
@@ -47,19 +45,13 @@ public class TaskTwo {
         Bag bag1 = new Bag(5);
         Bag bag2 = new Bag(5);
 
-        theBagsAreEqual = bag1 == bag2;
+        boolean theBagsAreEqual = bag1 == bag2;
 
         if (theBagsAreEqual) {
-            System.out.println("SUCCESS");
+            System.out.println("bag1 1 is equal to bag2!");
         } else {
-            System.out.println("FAIL");
+            System.out.println("bag1 1 is not equal to bag2! (They should be.)");
         }
-    }
-
-
-
-    public boolean theBagsAreEqual() {
-        return this.theBagsAreEqual;
     }
 
 }

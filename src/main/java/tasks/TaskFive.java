@@ -23,13 +23,9 @@ public class TaskFive {
             list.add("2");
 
         if (list.isEmpty()) {
-            System.out.println("SUCCESS");
+            System.out.println("Woho, the list is empty!");
         } else {
-            System.out.println("FAIL");
+            System.out.println("This list should be empty!");
         }
-    }
-
-    public ArrayList<String> getList() {
-        return list;
     }
 }

@@ -1,47 +1,72 @@
 package checker;
 
-import filewriter.WriteToFile;
-import tasks.*;
-
-import java.awt.*;
-import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.Optional;
 
 public class Checker {
+
+    private final static String TASK_ONE_FILEPATH = "src/main/java/tasks/TaskOne.java";
+    private final static String TASK_TWO_FILEPATH = "src/main/java/tasks/TaskTwo.java";
+    private final static String TASK_THREE_FILEPATH = "src/main/java/tasks/TaskThree.java";
+    private final static String TASK_FOUR_FILEPATH = "src/main/java/tasks/TaskFour.java";
+    private final static String TASK_FIVE_FILEPATH = "src/main/java/tasks/TaskFive.java";
 
     enum STATUS {
         SUCCESS,
         FAIL
     }
 
-    public static void checkTaskOne() {
-        TaskOne taskOne = new TaskOne();
-        TaskOne.Bag bag1 = taskOne.new Bag(4);
-        TaskOne.Bag bag2 = taskOne.new Bag(4);
+    private static void checkTask(String file) {
+        Optional<String> response = getResponse(file);
 
-        if (bag1.equals(bag2)) {
-            WriteToFile.write(STATUS.SUCCESS.toString(), 1);
+        if (response.isPresent()) {
+            if (response.get().contains("\"status\":\"errors\"")) {
+
+                System.out.println("FAIL");
+            } else {
+                System.out.println("SUCCESS");
+            }
         } else {
-            WriteToFile.write(STATUS.FAIL.toString(), 1);
+            System.out.println("FAIL");
         }
+    }
 
+    public static void checkTaskOne() {
+        checkTask(TASK_ONE_FILEPATH);
+    }
 
+    public static void checkTaskTwo() {
+        checkTask(TASK_TWO_FILEPATH);
+    }
+
+    public static void checkTaskThree() {
+        checkTask(TASK_THREE_FILEPATH);
+    }
+
+    public static void checkTaskFour() {
+        checkTask(TASK_FOUR_FILEPATH);
+    }
+
+    public static void checkTaskFive() {
+        checkTask(TASK_FIVE_FILEPATH);
+    }
+
+    private static Optional<String> getResponse(String path) {
         try {
             URL url = new URL("https://master-thesis-web-backend.herokuapp.com/analyse");
-            URLConnection con = null;
-            con = url.openConnection();
-            HttpURLConnection http = (HttpURLConnection)con;
+            URLConnection con = url.openConnection();
+            HttpURLConnection http = (HttpURLConnection) con;
             http.setRequestMethod("POST");
             http.setDoOutput(true);
-            http.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+            http.setRequestProperty("Content-Type", "text/plain; charset=UTF-8");
             http.connect();
 
-            FileReader file = new FileReader("src/main/java/tasks/TaskOne.java");
+            FileReader file = new FileReader(path);
             StringBuilder content = new StringBuilder();
             int ch = file.read();
             while (ch != -1) {
@@ -53,57 +78,11 @@ public class Checker {
                 os.write(content.toString().getBytes());
             }
             String response = new String(http.getInputStream().readAllBytes());
-            System.out.println(response);
-            if (response.contains("errors")) {
-                System.out.println("FAIL");
-            }
+            return Optional.of(response);
 
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-    }
-
-    public static void checkTaskTwo() {
-        TaskTwo taskTwo = new TaskTwo();
-
-        if (taskTwo.theBagsAreEqual()) {
-            WriteToFile.write(STATUS.SUCCESS.toString(), 2);
-        } else {
-            WriteToFile.write(STATUS.FAIL.toString(), 2);
-        }
-    }
-
-    public static void checkTaskThree() {
-        TaskThree taskThree = new TaskThree();
-
-        if ("JAVA".equals(taskThree.getString())) {
-            WriteToFile.write(STATUS.SUCCESS.toString(), 3);
-        } else {
-            WriteToFile.write(STATUS.FAIL.toString(), 3);
-        }
-    }
-
-    public static void checkTaskFour() {
-        TaskFour taskFour = new TaskFour();
-        taskFour.doIt();
-        TaskFour.Bag bag = taskFour.getBag();
-
-        if (bag.getContent() != null) {
-            WriteToFile.write(STATUS.SUCCESS.toString(), 4);
-        } else {
-            WriteToFile.write(STATUS.FAIL.toString(), 4);
-        }
-    }
-
-    public static void checkTaskFive() {
-        TaskFive taskFive = new TaskFive();
-        taskFive.doIt(false);
-
-        if (taskFive.getList().isEmpty()) {
-            WriteToFile.write(STATUS.SUCCESS.toString(), 5);
-        } else {
-            WriteToFile.write(STATUS.FAIL.toString(), 5);
-        }
+        return Optional.empty();
     }
 }

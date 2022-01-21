@@ -17,13 +17,13 @@ public class TaskThree {
      *
      */
     public void doIt() {
-        String s = "Java";
-        s.toUpperCase();
+        int a = 7;
+        int b = 5;
 
-        if ("JAVA".equals(s)) {
-            System.out.println("Output: " + s + " is correct!");
+        if (a/b == 1.4) {
+            System.out.println("Woho, a/b has the correct value!");
         } else {
-            System.out.println("Output: " + s + " should be JAVA!");
+            System.out.println("Oh no, a/b should be " + 1.4);
         }
     }
 

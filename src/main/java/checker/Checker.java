@@ -11,11 +11,6 @@ public class Checker {
     private final static String TASK_FIVE_FILEPATH = "src/main/java/tasks/TaskFive.java";
     private final static String DEMO_FILEPATH = "src/main/java/tasks/Demo.java";
 
-    enum STATUS {
-        SUCCESS,
-        FAIL
-    }
-
     private static void checkTask(String file) {
 
         Call call = new Call();

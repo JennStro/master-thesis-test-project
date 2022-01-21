@@ -13,7 +13,7 @@ public class Demo {
     }
 
     private void doIt(boolean bool) {
-        if (bool) ; {
+        if (bool) ;{
             System.out.println("Uh oh, this should not print!");
         }
     }

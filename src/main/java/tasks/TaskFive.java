@@ -18,9 +18,10 @@ public class TaskFive {
 
     public void doIt(boolean shouldAddToList) {
         list = new ArrayList<>();
-        if (shouldAddToList)
+        if (shouldAddToList) {
             list.add("1");
             list.add("2");
+        }
 
         if (list.isEmpty()) {
             System.out.println("Woho, the list is empty!");

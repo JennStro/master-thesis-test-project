@@ -40,7 +40,7 @@ public class TaskFour {
         if (bag.getContent() == null) {
             System.out.println("Uh oh, the content of the bag should not be null!");
         } else {
-            System.out.println("Woho! The content of the bag is not null anymore.");
+            System.out.println("Woho! The content of the bag is not null.");
         }
     }
 

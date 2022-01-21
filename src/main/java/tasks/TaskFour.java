@@ -8,12 +8,17 @@ import java.util.ArrayList;
 @NoEqualsMethod
 public class TaskFour {
 
+    // TODO: Run this method first, then try to solve the task below.
+    // TODO: Check if you have solved the task by running this method!
     public static void main(String[] args) {
         TaskFour taskFour = new TaskFour();
         taskFour.doIt();
         Checker.checkTaskFour();
     }
 
+    // TODO: TASK 4
+    // TODO: How can the condition "bag.getContent() == null" on line 45 be true? Answer in the form.
+    // TODO: Make changes to the Bag class such that the bag content no longer is null.
     public class Bag {
         private ArrayList<String> content;
 

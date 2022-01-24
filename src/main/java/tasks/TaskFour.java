@@ -3,8 +3,6 @@ package tasks;
 import annotations.NoEqualsMethod;
 import checker.Checker;
 
-import java.util.ArrayList;
-
 @NoEqualsMethod
 public class TaskFour {
 
@@ -16,36 +14,15 @@ public class TaskFour {
         Checker.checkTaskFour();
     }
 
-    // TODO: TASK 4
-    // TODO: How can the condition "bag.getContent() == null" on line 45 be true? Answer in the form.
-    // TODO: Make changes to the Bag class such that the bag content no longer is null.
-    public class Bag {
-        private ArrayList<String> content;
-
-        public boolean equals(Object other) {
-            if (other instanceof Bag) {
-                return ((Bag) other).content.size() == this.getContent().size();
-            }
-            return false;
-        }
-
-        public int hashCode() {
-            return this.content.size();
-        }
-
-        public ArrayList<String> getContent() {
-            return content;
-        }
-
-    }
-
     public void doIt() {
-        Bag bag = new Bag();
-
-        if (bag.getContent() == null) {
-            System.out.println("Uh oh, the content of the bag should not be null!");
+        // TODO: TASK 4
+        // TODO: How can strings[0].equals("java") be executed (this is why we get an ArrayIndexOutOfBoundsException) even though the list "strings" is empty? Answer in the form.
+        // TODO: Change the if-condition such that strings[0].equals("java") not get executed when the list is empty. (The list *should* be empty!)
+        String[] strings = new String[]{};
+        if (strings.length > 0 & strings[0].equals("java")) {
+            System.out.println("Uh oh, we should have an empty list!");
         } else {
-            System.out.println("Woho! The content of the bag is not null.");
+            System.out.println("Woho! You avoided the ArrayIndexOutOfBoundsException, good job! :)" );
         }
     }
 

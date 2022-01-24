@@ -24,6 +24,7 @@ public class TaskTwo {
             this.size = size;
         }
 
+        @Override
         public boolean equals(Object other) {
             if (other instanceof Bag) {
                 return ((Bag) other).size == this.size;

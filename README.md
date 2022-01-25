@@ -1,7 +1,11 @@
 # master-thesis-test-project
 
-Clone this repository using your IDE or the console: 
+Clone this repository using your IDE or the console.
 
+Repository URL (HTTP):
 ```
-git clone <repository url>
+https://github.com/JennStro/master-thesis-test-project.git
 ```
+
+
+

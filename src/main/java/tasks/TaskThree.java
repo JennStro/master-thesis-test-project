@@ -25,6 +25,7 @@ public class TaskThree {
             System.out.println("Woho, a/b has the correct value!");
         } else {
             System.out.println("Oh no, a/b should be " + 1.4 + " but is " + a/b);
+            Checker.tell("Oh no, a/b should be " + 1.4);
         }
     }
 

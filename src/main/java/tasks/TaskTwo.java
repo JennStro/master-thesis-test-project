@@ -47,9 +47,10 @@ public class TaskTwo {
         // TODO: How can the condition "bag1 == bag2" be false? Give your answer in the form.
         // TODO: Change the condition such that the bags are compared correctly. (You should *not* make changes to the class Bag here!)
         if (bag1 == bag2) {
-            System.out.println("bag1 1 is equal to bag2, good job! :)");
+            System.out.println("bag1 is equal to bag2, good job! :)");
         } else {
-            System.out.println("bag1 1 is not equal to bag2!");
+            System.out.println("bag1 is not equal to bag2!");
+            Checker.tell("bag1 is not equal to bag2!");
         }
     }
 

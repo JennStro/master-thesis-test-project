@@ -16,11 +16,12 @@ public class TaskFour {
 
     public void doIt() {
         // TODO: TASK 4
-        // TODO: How can strings[0].equals("java") be executed (this is why we get an ArrayIndexOutOfBoundsException) even though the list "strings" is empty? Answer in the form.
-        // TODO: Change the if-condition such that strings[0].equals("java") not get executed when the list is empty. (The list *should* be empty!)
+        // TODO: How can we get an ArrayIndexOutOfBoundsException even though we check that the list "strings" is not empty? Answer in the form.
+        // TODO: Change the if-condition "(strings.length > 0 & strings[0].equals("java"))" such that the ArrayIndexOutOfBoundsException is avoided. (The list *should* be empty!)
         String[] strings = new String[]{};
         if (strings.length > 0 & strings[0].equals("java")) {
             System.out.println("Uh oh, we should have an empty list!");
+            Checker.tell("Uh oh, we should have an empty list!");
         } else {
             System.out.println("Woho! You avoided the ArrayIndexOutOfBoundsException, good job! :)" );
         }

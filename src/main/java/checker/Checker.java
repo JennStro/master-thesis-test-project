@@ -11,6 +11,9 @@ public class Checker {
     private final static String TASK_FIVE_FILEPATH = "src/main/java/tasks/TaskFive.java";
     private final static String DEMO_FILEPATH = "src/main/java/tasks/Demo.java";
 
+    private static boolean taskComplete = true;
+    private static String taskText;
+
     private static void checkTask(String file) {
 
         Call call = new Call();
@@ -18,7 +21,7 @@ public class Checker {
         call.start();
 
         System.out.println("Waiting for analysis.");
-        int progressLength = 30;
+        int progressLength = 50;
         int prints = 0;
         while(!call.hasResponse()) {
             System.out.print(".");
@@ -37,14 +40,19 @@ public class Checker {
         call.interrupt();
 
         if (response.isPresent()) {
-            if (response.get().contains("\"status\":\"errors\"")) {
-
+            if (response.get().contains("\"status\":\"errors\"") || !taskComplete) {
                 System.out.println("\nFAIL");
+                if (taskText != null) {
+                    System.out.println("Hint: " + taskText);
+                }
             } else {
                 System.out.println("\nSUCCESS");
             }
         } else {
             System.out.println("\nFAIL");
+            if (taskText != null) {
+                System.out.println("Hint: " + taskText);
+            }
         }
     }
 
@@ -71,4 +79,8 @@ public class Checker {
     public static void checkDemo() { checkTask(DEMO_FILEPATH); }
 
 
+    public static void tell(String text) {
+        taskComplete = false;
+        taskText = text;
+    }
 }

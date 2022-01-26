@@ -26,6 +26,7 @@ public class TaskOne {
         public Bag(int content) {
             this.content = content;
         }
+
     }
 
     public void doIt() {
@@ -34,9 +35,10 @@ public class TaskOne {
         Bag bag2 = new Bag(5);
 
         if (bag1.equals(bag2)) {
-            System.out.println("bag1 1 is equal to bag2!");
+            System.out.println("bag1 is equal to bag2!");
         } else {
-            System.out.println("bag1 1 is not equal to bag2!");
+            System.out.println("bag1 is not equal to bag2!");
+            Checker.tell("bag1 is not equal to bag2!");
         }
     }
 

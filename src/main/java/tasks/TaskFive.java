@@ -33,6 +33,7 @@ public class TaskFive {
             System.out.println("Woho, the list is empty!");
         } else {
             System.out.println("This list should be empty, but is " + list);
+            Checker.tell("This list should be empty, but is " + list);
         }
     }
 }

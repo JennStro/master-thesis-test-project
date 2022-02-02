@@ -24,6 +24,7 @@ public class TaskFive {
         // TODO: TASK 5
         // TODO: The boolean shouldAddToList is false, so why does it still add numbers to the list? Answer in the form.
         // TODO: Make changes to the if-statement below such that no numbers are added to the list. (Both numbers should be added if shouldAddToList is true!)
+        // TODO: Stuck? Get help by copying this whole file (Ctrl/Cmd+A then Ctrl/Cmd+C) into https://master-thesis-frontend-prod.herokuapp.com/
         if (shouldAddToList)
             list.add(1);
             list.add(2);

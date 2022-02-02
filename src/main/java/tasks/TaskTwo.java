@@ -15,25 +15,12 @@ public class TaskTwo {
         Checker.checkTaskTwo();
     }
 
-    // You should *not* change the Bag class in this task
     public class Bag {
 
         private int size;
 
         public Bag(int size) {
             this.size = size;
-        }
-
-        @Override
-        public boolean equals(Object other) {
-            if (other instanceof Bag) {
-                return ((Bag) other).size == this.size;
-            }
-            return false;
-        }
-
-        public int hashCode() {
-            return this.size;
         }
 
     }
@@ -44,8 +31,9 @@ public class TaskTwo {
         Bag bag2 = new Bag(5);
 
         // TODO: TASK 2
-        // TODO: How can the condition "bag1 == bag2" be false? Give your answer in the form.
-        // TODO: Change the condition such that the bags are compared correctly. (You should *not* make changes to the class Bag here!)
+        // TODO: What method is the Bag class missing so that you can compare two bags? How can the condition "bag1 == bag2" be false? Give your answer in the form.
+        // TODO: Change the condition such that the bags are compared correctly. Implement the missing method in class Bag above.
+        // TODO: Stuck? Get help by copying this whole file (Ctrl/Cmd+A then Ctrl/Cmd+C) into https://master-thesis-frontend-prod.herokuapp.com/
         if (bag1 == bag2) {
             System.out.println("bag1 is equal to bag2, good job! :)");
         } else {

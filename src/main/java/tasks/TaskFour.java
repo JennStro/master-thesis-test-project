@@ -18,6 +18,7 @@ public class TaskFour {
         // TODO: TASK 4
         // TODO: How can we get an ArrayIndexOutOfBoundsException even though we check that the list "strings" is not empty? Answer in the form.
         // TODO: Change the if-condition "(strings.length > 0 & strings[0].equals("java"))" such that the ArrayIndexOutOfBoundsException is avoided. (The list *should* be empty!)
+        // TODO: Stuck? Get help by copying this whole file (Ctrl/Cmd+A then Ctrl/Cmd+C) into https://master-thesis-frontend-prod.herokuapp.com/
         String[] strings = new String[]{};
         if (strings.length > 0 & strings[0].equals("java")) {
             System.out.println("Uh oh, we should have an empty list!");

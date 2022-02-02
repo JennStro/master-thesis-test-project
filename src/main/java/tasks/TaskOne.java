@@ -3,8 +3,6 @@ package tasks;
 import annotations.NoEqualsMethod;
 import checker.Checker;
 
-import java.util.Objects;
-
 @NoEqualsMethod
 public class TaskOne {
 
@@ -12,33 +10,17 @@ public class TaskOne {
     // TODO: Check if you have solved the task by running this method!
     public static void main(String[] args) {
         TaskOne taskOne = new TaskOne();
-        taskOne.doIt();
+        taskOne.doIt(false);
         Checker.checkTaskOne();
     }
 
-    // TODO: TASK 1
-    // TODO: How can the condition "bag1.equals(bag2)" on line 36 be false? Give your answer in the form.
-    // TODO: Make changes to the Bag class such that "bag1.equals(bag2)" is true.
-    public class Bag {
-
-        private int content = 0;
-
-        public Bag(int content) {
-            this.content = content;
-        }
-
-    }
-
-    public void doIt() {
-        //Two equal bags because they have the same content.
-        Bag bag1 = new Bag(5);
-        Bag bag2 = new Bag(5);
-
-        if (bag1.equals(bag2)) {
-            System.out.println("bag1 is equal to bag2!");
-        } else {
-            System.out.println("bag1 is not equal to bag2!");
-            Checker.tell("bag1 is not equal to bag2!");
+    public void doIt(boolean value) {
+        // TODO: How can the text be printed even though value is always false? Answer in the form.
+        // TODO: Change the if-statement such that nothing prints! (value should always be false).
+        // TODO: Stuck? Get help by copying this whole file (Ctrl/Cmd+A then Ctrl/Cmd+C) into https://master-thesis-frontend-prod.herokuapp.com/
+        if (value); {
+            System.out.println("Uh oh, this should not print when value is "+ value +"!");
+            Checker.tell("Uh oh, this should not print when value is "+ value +"!");
         }
     }
 

@@ -21,6 +21,7 @@ public class TaskThree {
         // TODO: TASK 3
         // TODO: 7/5 = 1.4, so how can the condition "a/b == 1.4" be false? Give your answer in the form.
         // TODO: Change the condition such that "a/b" is equal to 1.4.
+        // TODO: Stuck? Get help by copying this whole file (Ctrl/Cmd+A then Ctrl/Cmd+C) into https://master-thesis-frontend-prod.herokuapp.com/
         if (a/b == 1.4) {
             System.out.println("Woho, a/b has the correct value!");
         } else {

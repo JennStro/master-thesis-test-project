@@ -9,6 +9,7 @@ public class Checker {
     private final static String TASK_THREE_FILEPATH = "src/main/java/tasks/TaskThree.java";
     private final static String TASK_FOUR_FILEPATH = "src/main/java/tasks/TaskFour.java";
     private final static String TASK_FIVE_FILEPATH = "src/main/java/tasks/TaskFive.java";
+    private final static String DEMO_FILEPATH = "src/main/java/tasks/Demo.java";
 
     private static boolean taskComplete = true;
     private static String taskText;
@@ -74,6 +75,9 @@ public class Checker {
     public static void checkTaskFive() {
         checkTask(TASK_FIVE_FILEPATH);
     }
+
+    public static void checkDemo() { checkTask(DEMO_FILEPATH); }
+
 
     public static void tell(String text) {
         taskComplete = false;
